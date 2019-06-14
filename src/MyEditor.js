@@ -45,6 +45,7 @@ class RichEditorExample extends React.Component {
         }
         return getDefaultKeyBinding(e);
     }
+
     _toggleBlockType(blockType) {
         this.onChange(
             RichUtils.toggleBlockType(
@@ -105,7 +106,6 @@ class RichEditorExample extends React.Component {
                         plugins={plugins}
                         placeholder="Tell a story..."
                         ref="editor"
-
                         spellCheck={true}
                     />
                 </div>
