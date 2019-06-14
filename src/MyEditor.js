@@ -2,7 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'draft-js/dist/Draft.css';
 import  './RichEditor.css'
-import {Editor,RichUtils,getDefaultKeyBinding, EditorState} from 'draft-js';
+import createLinkifyPlugin from 'draft-js-linkify-plugin';
+import {RichUtils,getDefaultKeyBinding, EditorState} from 'draft-js';
+import Editor from 'draft-js-plugins-editor';
+const linkifyPlugin = createLinkifyPlugin();
+const plugins = [linkifyPlugin];
+
 
 class RichEditorExample extends React.Component {
 
@@ -97,8 +102,10 @@ class RichEditorExample extends React.Component {
                         handleKeyCommand={this.handleKeyCommand}
                         keyBindingFn={this.mapKeyToEditorCommand}
                         onChange={this.onChange}
+                        plugins={plugins}
                         placeholder="Tell a story..."
                         ref="editor"
+
                         spellCheck={true}
                     />
                 </div>
