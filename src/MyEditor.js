@@ -63,6 +63,7 @@ class RichEditorExample extends React.Component {
             )
         );
     }
+
     onUndo() {
         this.onChange(EditorState.undo(this.state.editorState));
     }
@@ -70,7 +71,6 @@ class RichEditorExample extends React.Component {
     onRedo() {
         this.onChange(EditorState.redo(this.state.editorState));
     }
-
 
     render() {
         const {editorState} = this.state;
@@ -91,8 +91,7 @@ class RichEditorExample extends React.Component {
                 {/*/>*/}
                 <InlineStyleControls
                     editorState={editorState}
-                    onToggle={this.toggleInlineStyle}
-                />
+                    onToggle={this.toggleInlineStyle} />
                 <button onClick={this.onUndo.bind(this)}>undo</button>
                 <button onClick={this.onRedo.bind(this)}>Redo</button>
                 <div className={className} onClick={this.focus}>
@@ -106,8 +105,7 @@ class RichEditorExample extends React.Component {
                         plugins={plugins}
                         placeholder="Tell a story..."
                         ref="editor"
-                        spellCheck={true}
-                    />
+                        spellCheck={true} />
                 </div>
             </div>
         );
